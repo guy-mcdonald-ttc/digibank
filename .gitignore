@@ -33,3 +33,6 @@ bin/
 ### Gradle ###
 .gradle/
 /.gradle/
+
+apache-tomcat
+teamscale-jacoco-agent
