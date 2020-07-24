@@ -34,5 +34,19 @@ bin/
 .gradle/
 /.gradle/
 
+### Eclipse ###
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.temp-DigitalBankApplication*.txt
+
 apache-tomcat
 teamscale-jacoco-agent
