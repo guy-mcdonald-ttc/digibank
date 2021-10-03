@@ -48,5 +48,9 @@ local.properties
 .loadpath
 .temp-DigitalBankApplication*.txt
 
+
+### VSCode ####
+/.vscode/
+
 apache-tomcat
 teamscale-jacoco-agent
