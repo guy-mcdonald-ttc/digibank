@@ -8,7 +8,7 @@ services:
     working_dir: /var/teamscale
     volumes:
       - ./teamscale:/var/teamscale
-      - ../digitalbank-gen-one:/bank
+      - ..:/bank
     ports:
       - "8080:8080"
 
