@@ -21,18 +21,3 @@ Scenario: ATM Location Search with Empty Zip Code
   Then Hailee verifies the return code is '500'
   And they verify they are presented with a validation error message
 
-@positive
-Scenario: ATM Location Search with Valid Zip Code with Results
-  Given Niara is authenticated into the API with email Niara750178@gmail.com
-  When Niara populates the Search request with zipcode equal to '11749'
-  And they submit the Search request
-  Then Niara verifies the return code is '200'
-  And they verify they are presented with a list of results
-
-@positive
-Scenario: ATM Location Search with Valid Zip Code without Results
-  Given Adhik is authenticated into the API with email Adhik9162@gmail.com
-  When Adhik populates the Search request with zipcode equal to '12345'
-  And they submit the Search request
-  Then Adhik verifies the return code is '200'
-  And they verify they are presented with a empty list
