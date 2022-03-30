@@ -292,17 +292,42 @@
 				<version>0.8.2</version>
 				<executions>
 					<execution>
+						<id>jacoco-initialize-ut</id>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
+						<configuration>
+							<propertyName>surefire.jacoco.args</propertyName>
+						</configuration>
 					</execution>
-					<!-- attached to Maven test phase -->
 					<execution>
-						<id>report</id>
+						<id>jacoco-report-ut</id>
 						<phase>test</phase>
 						<goals>
 							<goal>report</goal>
 						</goals>
+					</execution>
+
+					<execution>
+						<id>jacoco-initialize-it</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>prepare-agent-integration</goal>
+						</goals>
+						<configuration>
+							<propertyName>failsafe.jacoco.args</propertyName>
+						</configuration>
+					</execution>
+					<execution>
+						<id>jacoco-report-it</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<dataFile>${project.build.directory}/jacoco-it.exec</dataFile>
+							<outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -312,6 +337,7 @@
 				<configuration>
 	              <wait>1000</wait>
 	              <maxAttempts>180</maxAttempts>
+				  <jvmArguments>${failsafe.jacoco.args}</jvmArguments>
 			     </configuration>
 				<executions>
 					<execution>
@@ -359,7 +385,7 @@
                     <skip>${skipUnitTests}</skip>
                     <forkCount>2</forkCount>
                     <threadCount>1</threadCount>
-                    <argLine></argLine>
+					<argLine>${surefire.jacoco.args}</argLine>
                 </configuration>
             </plugin>
             <plugin>
