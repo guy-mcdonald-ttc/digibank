@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 function setup_manual_test() {
   if [ -d apache-tomcat ]; then
     rm -rf apache-tomcat
