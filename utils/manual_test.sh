@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-mvn clean package -DskipTests
+./mvnw clean package -DskipTests
 
 # Set Tomcat variables
 export CATALINA_HOME="$(pwd)/apache-tomcat"
