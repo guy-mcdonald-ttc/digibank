@@ -8,7 +8,7 @@ function setup_manual_test() {
     rm -rf teamscale-jacoco-agent
   fi
 
-  unzip manual_test.zip
+  unzip ./utils/manual_test.zip
 }
 
 setup_manual_test
