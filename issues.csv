@@ -1,0 +1,2 @@
+id,subject,assignee,author,description,created,updated,status,closed,url,parent,Type,Priority,Fix Version,Component,QA-Contact
+133742,Prevent deposits smaller than 0,pettinger,streitel,Prevent depositing negative amounts to accounts which would be equivalent to a withdrawl. This should be prevented in the backend.,1544878393000,1544878393000,In Progress,false,,,Feature,Normal,DigiBank 2.3.0,Backend,streitel
