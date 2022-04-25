@@ -1,7 +1,7 @@
 ﻿id,subject,assignee,author,description,created,updated,status,closed,url,parent,Type,Priority,Fix Version,Component,QA-Contact
-133742,Prevent deposits smaller than 0,admin,PO,Prevent depositing negative amounts to accounts which would be equivalent to a withdrawl. This should be prevented in the backend.,1544880000000,1544880000000,In Progress,FALSE,,,Feature,Normal,DigiBank 2.2.0,Backend,qa
-133701,Implement Credit API,dev1,PO,,1544880000000,1544880000000,Done,TRUE,,,Feature,Normal,DigiBank 2.1.0,Backend,qa
+133742,Prevent deposits smaller than 0,admin,PO,Prevent depositing negative amounts to accounts which would be equivalent to a withdrawl. This should be prevented in the backend.,1544880000000,1544880000000,In Progress,FALSE,,,Feature,High,DigiBank 2.2.0,Backend,qa
+133701,Implement Credit API,dev1,PO,,1544880000000,1544880000000,Done,TRUE,,,Feature,Low,DigiBank 2.1.0,Backend,qa
 133705,Comfirm Checking Account Creation,dev1,PO,,1544880000000,1544880000000,Done,TRUE,,,Feature,Normal,DigiBank 2.1.0,Backend,qa
 133717,Topic Menu Overhaul,dev2,PO,,1544880000000,1544880000000,Done,TRUE,,,Feature,Normal,DigiBank 2.1.0,Backend,qa
 133724,Make DigiBank available for K8s,dev2,PO,,1544880000000,1544880000000,Done,TRUE,,,Maintenance,Normal,DigiBank 2.1.0,Backend,qa
-133733,Implement SSL,admin,PO,,1544880000000,1544880000000,Done,TRUE,,,Feature,Normal,DigiBank 2.1.0,Backend,qa
+133733,Implement SSL,admin,PO,,1544880000000,1544880000000,Done,TRUE,,,Feature,High,DigiBank 2.1.0,Backend,qa
