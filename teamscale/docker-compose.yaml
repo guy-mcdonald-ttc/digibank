@@ -3,8 +3,9 @@ version: '3'
 services:
   teamscale:
     image: 'cqse/teamscale:7.8.0'
+    user: 1001:1001
     hostname: 'teamscale'
-    restart: unless-stopped
+    restart: always
     working_dir: /var/teamscale
     volumes:
       - ./teamscale:/var/teamscale
