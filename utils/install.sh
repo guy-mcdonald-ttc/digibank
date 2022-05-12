@@ -24,7 +24,7 @@ function setup_git_repo() {
   # We need to exclude it from git for the release and issue test scripts to be able to switch branches
   # This was the easiest way to do that without another major rebase
   if [[ ! "$(tail -1 .git/info/exclude)" == "\"teamscale/teamscale/?\"" ]]; then
-    echo "\"teamscale/teamscale/?\"" >>.git/info/exclude
+    echo "teamscale/teamscale/?" >>.git/info/exclude
   fi
 }
 
