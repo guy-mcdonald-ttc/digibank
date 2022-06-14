@@ -402,9 +402,6 @@
                         <exclude>**/serenity/*Test*.java</exclude>
                     </excludes>
                     <skip>${skipUnitTests}</skip>
-                    <forkCount>2</forkCount>
-                    <threadCount>1</threadCount>
-                    <argLine>${surefire.jacoco.args}</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -426,9 +423,6 @@
                     <systemPropertyVariables>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
                     </systemPropertyVariables>
-                    <parallel>classes</parallel>
-                    <threadCount>${parallel.tests}</threadCount>
-                    <forkCount>${parallel.tests}</forkCount>
                 </configuration>
                 <executions>
                     <execution>
@@ -458,4 +452,74 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+      <profile>
+
+        <id>tia</id>
+        <activation>
+          <property>
+            <name>tia</name>
+          </property>
+        </activation>
+
+        <build>
+          <plugins>
+            <plugin>
+              <groupId>com.teamscale</groupId>
+              <artifactId>teamscale-maven-plugin</artifactId>
+              <version>24.0.1</version>
+              <executions>
+                <execution>
+                  <goals>
+                    <goal>prepare-tia-unit-test</goal> <!-- Enables TIA for Surfire unit tests -->
+                    <goal>prepare-tia-integration-test</goal> <!-- Enables TIA for Failsafe integration tests -->
+                  </goals>
+                </execution>
+              </executions>
+              <configuration>
+                <teamscaleUrl>http://demo-bank-teamscale:8080</teamscaleUrl>
+                <projectId>digibank</projectId>
+                <username>build</username>
+                <accessToken>anqqeNLeiHgeyQ43DGq1ks9OZZFMYho9</accessToken>
+                <includes>
+                  <include>*io.digisic.*</include>
+                </includes>
+              </configuration>
+            </plugin>
+          </plugins>
+
+          <pluginManagement>
+            <plugins>
+
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <dependencies>
+                  <dependency>
+                    <groupId>com.teamscale</groupId>
+                    <artifactId>teamscale-surefire-provider</artifactId>
+                    <version>24.0.1</version>
+                  </dependency>
+                </dependencies>
+              </plugin>
+
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <dependencies>
+                  <dependency>
+                    <groupId>com.teamscale</groupId>
+                    <artifactId>teamscale-surefire-provider</artifactId>
+                    <version>24.0.1</version>
+                  </dependency>
+                </dependencies>
+              </plugin>
+
+            </plugins>
+          </pluginManagement>
+        </build>
+      </profile>
+    </profiles>
+
 </project>
