@@ -14,7 +14,7 @@ public class TransferSteps extends ScenarioSteps{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -9217777745579627128L;
+	private static final long serialVersionUID = -9217777745479627128L;
 	
 	TransferPage transferPage;
 

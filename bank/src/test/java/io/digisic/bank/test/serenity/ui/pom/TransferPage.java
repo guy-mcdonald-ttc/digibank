@@ -1,5 +1,6 @@
 package io.digisic.bank.test.serenity.ui.pom;
 
+import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.DefaultUrl;
 
 import org.openqa.selenium.WebElement;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 @DefaultUrl ("https://localhost:8443/account/xfer-between")
-public class TransferPage {
+public class TransferPage extends PageObject {
 	
 	@FindBy(id="fromAccount")
 	private WebElement fromAccount;
@@ -18,18 +19,18 @@ public class TransferPage {
 	@FindBy(id="amount")
 	private WebElement amountInput;
 
-	@FindBy(id="submit")
+	@FindBy(id="formSubmitButton")
 	private WebElement submitButton;
 
 	@FindBy(id="error")
 	private WebElement errorAlert;
 
 	public void selectFromAccount(int index) {
-		new Select(fromAccount).selectByIndex(index + 1);
+		new Select(fromAccount).selectByIndex(index);
 	}
 
 	public void selectToAccount(int index) {
-		new Select(toAccount).selectByIndex(index + 1);
+		new Select(toAccount).selectByIndex(index);
 	}
 	
 	public void enterAmount(String amount) {

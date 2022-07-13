@@ -33,13 +33,18 @@ public class TransferTests {
 	}
 
 	@And("^they select account number '(.*)' as the to account$")
-	public void selectToAccount(String perosna, String index) throws Throwable {
+	public void selectToAccount(String index) throws Throwable {
 		transferSteps.selectToAccount(index);
 	}
 
 	@And("^they enter '(.*)' into the amount field$")
 	public void enterAmount(String amount) throws Throwable {
 		transferSteps.enterAmount(amount);
+	}
+
+	@And("^they submit the form$")
+	public void submit() throws Throwable {
+		transferSteps.clickSubmit();
 	}
 
 	@Then("^(.*) verifies the transfer failed$")
