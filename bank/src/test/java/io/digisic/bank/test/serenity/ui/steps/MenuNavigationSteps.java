@@ -1,8 +1,9 @@
 package io.digisic.bank.test.serenity.ui.steps;
 
-import io.digisic.bank.test.serenity.ui.pom.HomePage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+
+import io.digisic.bank.test.serenity.ui.pom.HomePage;
 
 public class MenuNavigationSteps extends ScenarioSteps{
 	
@@ -36,5 +37,10 @@ public class MenuNavigationSteps extends ScenarioSteps{
 	@Step ("Click New Savings Menu Option")
 	public void clickNewSavingsMenuOption () {
 		homePage.clickNewSavingsMenuOption();
+	}
+
+	@Step ("Click Transfer Menu Option")
+	public void clickTransferMenuOption () {
+		homePage.clickTransferMenuOption();
 	}
 }

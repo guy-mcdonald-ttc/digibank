@@ -25,11 +25,11 @@ public class TransferPage {
 	private WebElement errorAlert;
 
 	public void selectFromAccount(int index) {
-		new Select(fromAccount).selectByIndex(index);
+		new Select(fromAccount).selectByIndex(index + 1);
 	}
 
 	public void selectToAccount(int index) {
-		new Select(toAccount).selectByIndex(index);
+		new Select(toAccount).selectByIndex(index + 1);
 	}
 	
 	public void enterAmount(String amount) {

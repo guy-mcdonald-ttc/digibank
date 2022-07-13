@@ -1,11 +1,11 @@
 package io.digisic.bank.test.serenity.ui.pom;
 
-import org.openqa.selenium.WebElement;
-
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+
+import org.openqa.selenium.WebElement;
 
 @DefaultUrl ("https://localhost:8443/home")
 public class HomePage extends PageObject {
@@ -27,9 +27,12 @@ public class HomePage extends PageObject {
 	
 	@FindBy(id="checking-menu")
 	private WebElement checkingMenu;
-	
+
 	@FindBy(id="new-checking-menu-item")
 	private WebElement newCheckingMenuOption;
+
+	@FindBy(id="transfer-menu-item")
+	private WebElement transferMenuOption;
 
 	private static String homePageURI = "/home";
 	
@@ -60,9 +63,13 @@ public class HomePage extends PageObject {
 	public void clickCheckingMenu() {
 		checkingMenu.click();
 	}
-	
+
 	public void clickNewCheckingMenuOption() {
 		newCheckingMenuOption.click();
+	}
+
+	public void clickTransferMenuOption() {
+		transferMenuOption.click();
 	}
 	
 }
