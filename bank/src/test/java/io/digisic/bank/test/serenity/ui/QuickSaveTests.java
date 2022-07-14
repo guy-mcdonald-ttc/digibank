@@ -26,17 +26,17 @@ public class QuickSaveTests {
 		menu.clickQuickSaveMenuOption();
 	}
 
-	@And("^they select account number '(.*)' as the to account$")
+	@And("^they select account number '(.*)' as the quick save to account$")
 	public void selectToAccount(String index) throws Throwable {
 		quickSaveSteps.selectToAccount(index);
 	}
 
-	@And("^they enter '(.*)' into the amount field$")
+	@And("^they enter '(.*)' into the quick save amount field$")
 	public void enterAmount(String amount) throws Throwable {
 		quickSaveSteps.enterAmount(amount);
 	}
 
-	@And("^they submit the form$")
+	@And("^they submit the quick save form$")
 	public void submit() throws Throwable {
 		quickSaveSteps.clickSubmit();
 	}

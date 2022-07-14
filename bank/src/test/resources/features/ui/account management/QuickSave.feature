@@ -15,7 +15,7 @@ Scenario: QuickSave can be ordered
     And they enter '2500' into the Money Market Initial Deposit field
     And they click the Submit button
   And they attempt to use QuickSave
-  And they select account number '1' as the to account
-  And they enter '11' into the amount field
-  And they submit the form
+  And they select account number '1' as the quick save to account
+  And they enter '11' into the quick save amount field
+  And they submit the quick save form
   Then Carleen verifies the order was placed
