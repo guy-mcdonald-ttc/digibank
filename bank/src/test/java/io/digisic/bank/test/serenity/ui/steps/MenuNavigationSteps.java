@@ -43,4 +43,9 @@ public class MenuNavigationSteps extends ScenarioSteps{
 	public void clickTransferMenuOption () {
 		homePage.clickTransferMenuOption();
 	}
+
+	@Step ("Click QuickSave Menu Option")
+	public void clickQuickSaveMenuOption () {
+		homePage.clickQuickSaveMenuOption();
+	}
 }

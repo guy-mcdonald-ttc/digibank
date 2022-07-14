@@ -34,6 +34,9 @@ public class HomePage extends PageObject {
 	@FindBy(id="transfer-menu-item")
 	private WebElement transferMenuOption;
 
+	@FindBy(id="quick-save-menu-item")
+	private WebElement quickSaveMenuOption;
+
 	private static String homePageURI = "/home";
 	
 	public void clickUserProfileMenu() {
@@ -70,6 +73,10 @@ public class HomePage extends PageObject {
 
 	public void clickTransferMenuOption() {
 		transferMenuOption.click();
+	}
+
+	public void clickQuickSaveMenuOption() {
+		quickSaveMenuOption.click();
 	}
 	
 }
