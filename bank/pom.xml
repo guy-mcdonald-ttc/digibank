@@ -41,7 +41,8 @@
         <buildNumber>local</buildNumber>
         <revision>2.1.0.${buildNumber}</revision>
         <contextPathName>bank</contextPathName>
-        <com.teamscale.version>29.1.1</com.teamscale.version>
+        <com.teamscale.version>33.1.2</com.teamscale.version>
+        <skipUnitTests>true</skipUnitTests>
     </properties>
 
     <dependencyManagement>
@@ -355,30 +356,30 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                  <wait>1000</wait>
-                  <maxAttempts>180</maxAttempts>
-                  <fork>true</fork>
-                 </configuration>
-                 <executions>
-                     <execution>
-                         <id>build-info</id>
-                         <goals>
-                             <goal>build-info</goal>
-                         </goals>
-                     </execution>    
-                     <execution>
-                         <id>pre-integration-test</id>
-                         <goals>
-                             <goal>start</goal>
-                         </goals>
-                     </execution>
-                     <execution>
-                         <id>post-integration-test</id>
-                         <goals>
-                             <goal>stop</goal>
-                         </goals>
-                     </execution> 
-                 </executions>
+                    <wait>1000</wait>
+                    <maxAttempts>180</maxAttempts>
+                    <fork>true</fork>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>build-info</id>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>pre-integration-test</id>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>post-integration-test</id>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -397,7 +398,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version><!--$NO-MVN-MAN-VER$-->
+                <version>3.2.5</version><!--$NO-MVN-MAN-VER$-->
                 <configuration>
                     <excludes>
                         <exclude>**/serenity/*Test*.java</exclude>
@@ -455,65 +456,52 @@
     </build>
 
     <profiles>
-      <profile>
+        <profile>
 
-        <id>tia</id>
-        <activation>
-          <property>
-            <name>tia</name>
-          </property>
-        </activation>
+            <id>tia</id>
+            <activation>
+                <property>
+                    <name>tia</name>
+                </property>
+            </activation>
 
-        <build>
-          <plugins>
-            <plugin>
-              <groupId>com.teamscale</groupId>
-              <artifactId>teamscale-maven-plugin</artifactId>
-              <version>${com.teamscale.version}</version>
-              <executions>
-                <execution>
-                  <goals>
-                    <goal>prepare-tia-integration-test</goal>
-                  </goals>
-                </execution>
-              </executions>
-              <configuration>
-                <teamscaleUrl>http://demo-bank-teamscale:8080</teamscaleUrl>
-                <projectId>digibank</projectId>
-                <username>build</username>
-                <accessToken>anqqeNLeiHgeyQ43DGq1ks9OZZFMYho9</accessToken>
-                <partition>UI Tests TIA</partition>
-                <includes>
-                  <include>*io.digisic.*</include>
-                </includes>
-              </configuration>
-            </plugin>
-          </plugins>
-
-          <pluginManagement>
-            <plugins>
-
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-              </plugin>
-
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <dependencies>
-                  <dependency>
+            <dependencies>
+                <dependency>
                     <groupId>com.teamscale</groupId>
-                    <artifactId>teamscale-surefire-provider</artifactId>
+                    <artifactId>impacted-test-engine</artifactId>
                     <version>${com.teamscale.version}</version>
-                  </dependency>
-                </dependencies>
-              </plugin>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
 
-            </plugins>
-          </pluginManagement>
-        </build>
-      </profile>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.teamscale</groupId>
+                        <artifactId>teamscale-maven-plugin</artifactId>
+                        <version>${com.teamscale.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>prepare-tia-integration-test</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <teamscaleUrl>https://engine.deltaproact.com</teamscaleUrl>
+                            <projectId>digibank</projectId>
+                            <username>guy-mcdonald-ttc</username>
+                            <accessToken>CBk6s5tZEmg5pJq9r2aTjaBy454FAN0T</accessToken>
+                            <partition>UI Tests TIA</partition>
+                            <revision>digibank</revision>
+                            <includes>
+                                <include>*io.digisic.*</include>
+                            </includes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
 </project>
