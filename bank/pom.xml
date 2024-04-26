@@ -420,7 +420,8 @@
                 <version>3.0.0-M5</version><!--$NO-MVN-MAN-VER$-->
                 <configuration>
                     <includes>
-                        <include>**/serenity/*Test*.java</include>
+<!--                        <include>**/serenity/*Test*.java</include>-->
+                        <include>**/generated/*IT.java</include>
                     </includes>
                     <systemPropertyVariables>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
@@ -429,10 +430,24 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
                     </execution>
+<!--                    <execution>-->
+<!--                        <id>generated-tests</id>-->
+<!--                        <configuration>-->
+<!--                            <includes>-->
+<!--                                <include>**/generated/*IT.java</include>-->
+<!--                            </includes>-->
+<!--                            <systemPropertyVariables>-->
+<!--                                <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>-->
+<!--                            </systemPropertyVariables>-->
+<!--                        </configuration>-->
+<!--                        <goals>-->
+<!--                            <goal>integration-test</goal>-->
+<!--                            <goal>verify</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
                 </executions>
             </plugin>
             <plugin>
@@ -492,7 +507,7 @@
                             <projectId>digibank</projectId>
                             <username>guy-mcdonald-ttc</username>
                             <accessToken>CBk6s5tZEmg5pJq9r2aTjaBy454FAN0T</accessToken>
-                            <partition>UI Tests TIA</partition>
+                            <partition>Generated</partition>
                             <revision>digibank</revision>
                             <includes>
                                 <include>*io.digisic.*</include>

@@ -218,8 +218,6 @@ public class TestDataService {
 		catch (Exception e) {}
 		
 	}
-	
-	
 	/*
 	 * Lock user account
 	 */
